@@ -6,7 +6,14 @@ class Testing extends BaseController
 {
     public function index()
     {
-        echo "testing";
+        // echo "testing";
+        $data = [
+            'title' => 'view data title',
+            'heading' => 'view data Heading',
+            'languages' => ['php','js','jquery','ajax']
+        ];
+
+        return view('Demo', $data);
     }
 
     //remap function triggers when a function not existing in a controller or class is tried to access
@@ -17,5 +24,20 @@ class Testing extends BaseController
         else {
             $this->index();
         }
+    }
+
+    public function generate_table(){
+        $table = new \CodeIgniter\View\Table();
+
+        $data = [
+            ['Name', 'Color', 'Size'],
+            ['Fred', 'Blue',  'Small'],
+            ['Mary', 'Red',   'Large'],
+            ['John', 'Green', 'Medium'],
+        ];
+
+        $data['result'] = $table->generate($data);
+        
+        echo view("Data_viewer", $data);
     }
 }
