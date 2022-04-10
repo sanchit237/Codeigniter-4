@@ -8,5 +8,8 @@
 </head>
 <body>
     <?= $result;?>
+    <p>{name}</p>
+    <p>{city}</p>
+    <p>{state}</p>
 </body>
 </html>

@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class Testing extends BaseController
 {
+    public $parser;
+
+    public function __construct(){
+        $this->parser = \Config\Services::parser();
+    }
     public function index()
     {
         // echo "testing";
@@ -39,5 +44,11 @@ class Testing extends BaseController
         $data['result'] = $table->generate($data);
         
         echo view("Data_viewer", $data);
+    }
+
+    public function parsing(){
+        $data = ['name'=>'test','city'=>'mumbai','state'=>'maharashtra'];
+
+        return $this->parser->setData($data)->render("Data_viewer");
     }
 }

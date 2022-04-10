@@ -6,7 +6,7 @@
         <h2><?= $heading;?></h2>
         <ul>
         <?php
-        if (count($languages)>0):
+        if (count($languages) > 0):
             foreach ($languages as $language):
             ?>   
                 <li><?= $language;?></li>
