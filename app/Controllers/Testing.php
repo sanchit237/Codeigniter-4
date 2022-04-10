@@ -51,4 +51,8 @@ class Testing extends BaseController
 
         return $this->parser->setData($data)->render("Data_viewer");
     }
+
+    public function bs(){
+        echo view("bs_view");
+    }
 }
