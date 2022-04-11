@@ -33,7 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->add('bootstrap-page', 'Testing::bs');
+// $routes->add('bootstrap-page', 'Testing::bs');
+// $routes->add('bootstrap-page', 'Testing::model_test');
 
 // Redirect to a named route
 $routes->addRedirect('redirect-test', 'bootstrap-page');

@@ -5,9 +5,11 @@ namespace App\Controllers;
 class Testing extends BaseController
 {
     public $parser;
+    public $usermodel; 
 
     public function __construct(){
         $this->parser = \Config\Services::parser();
+        $this->usermodel = new \App\Models\User();
     }
     public function index()
     {
@@ -54,5 +56,17 @@ class Testing extends BaseController
 
     public function bs(){
         echo view("bs_view");
+    }
+
+    public function model_test(){
+        $data['mod_result'] = $this->usermodel->index();
+
+        return view("bs_view", $data);
+    }
+
+    public function display_data(){
+        $data['display'] = $this->usermodel->display();
+
+        return view("bs_view", $data);
     }
 }
