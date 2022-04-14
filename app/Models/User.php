@@ -17,7 +17,7 @@ class User extends Model {
     }
 
     public function display(){
-        $displaydata = $this->db->query('select * from users ');
+        $displaydata = $this->db->query('select * from users');
 
         $result = $displaydata->getResult();
 

@@ -10,6 +10,7 @@ class Testing extends BaseController
     public function __construct(){
         $this->parser = \Config\Services::parser();
         $this->usermodel = new \App\Models\User();
+        helper('form');
     }
     public function index()
     {
@@ -20,7 +21,18 @@ class Testing extends BaseController
             'languages' => ['php','js','jquery','ajax']
         ];
 
-        return view('Demo', $data);
+        // return view('Demo', $data);
+        echo form_open();
+        echo form_input('username', 'johndoe');
+        $options = [
+            'small'  => 'Small Shirt',
+            'med'    => 'Medium Shirt',
+            'large'  => 'Large Shirt',
+            'xlarge' => 'Extra Large Shirt',
+        ];
+        
+        $shirts_on_sale = ['small', 'large'];
+        echo form_dropdown('shirts', $options, 'large');
     }
 
     //remap function triggers when a function not existing in a controller or class is tried to access

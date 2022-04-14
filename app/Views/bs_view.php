@@ -6,11 +6,13 @@
             <div class="col-md-12">
                 <h1>Hello, world!</h1>
                 <ul>
+                    <?php /*
                     <?php foreach($mod_result as $result): ?>
                         <li><?php echo $result; ?></li> 
                         <?php 
                     endforeach;
-                    ?>    
+                    ?> 
+                    */?>
                 </ul>
                 <ul>
                     <?php foreach($display as $result1): ?>
