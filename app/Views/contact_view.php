@@ -1,4 +1,7 @@
+<?php $page_session = \Config\Services::session(); ?>
+
 <?= $this->extend('layouts/bs_main') ?>
+
 
 <?= $this->section('content') ?>
 
@@ -10,6 +13,12 @@
             <?php if(isset($validation)): ?>
             <div class="alert alert-danger">
                 <?= $validation->listErrors() ?>
+            </div> 
+            <?php endif; ?>
+
+            <?php if($page_session->getFlashdata('success')): ?>
+            <div class="alert alert-success">
+                <?= $page_session->getFlashdata('success'); ?>
             </div> 
             <?php endif; ?>
             

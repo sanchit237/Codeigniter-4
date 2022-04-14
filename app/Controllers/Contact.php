@@ -30,10 +30,12 @@ class Contact extends BaseController
                 $result = $this->ContactModel->savedata($cdata);
 
                 if ($result){
-                    echo "data inserted sucessfully";
+                    $this->session->setFlashdata('success', 'Data inserted successfully');
+                    // echo "data inserted sucessfully";
                     return redirect()->to('Contact');
                 }
                 else {
+                    $this->session->setFlashdata('error', 'Data not inserted successfully');
                     echo "Data insertion error";
                     return redirect()->to('Contact');
                 }
