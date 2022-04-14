@@ -12,17 +12,17 @@
     
 </head>
 <body>
-<ul class="nav">
+<div>    
+    <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link " href="#">Contact</a>
+            <a class="nav-link " href="<?= base_url() . '/Contact' ?>">Contact</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-        </li>
     </ul>
+<div>    
