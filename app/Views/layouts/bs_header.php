@@ -11,9 +11,8 @@
     <title>Hello, world!</title>
     
 </head>
-<body>
-<div>    
-    <ul class="nav">
+<body> 
+    <ul class="nav py-3">
         <li class="nav-item">
             <a class="nav-link " href="<?= base_url() . '/Contact' ?>">Contact</a>
         </li>
@@ -24,5 +23,4 @@
             <a class="nav-link" href="#">Login</a>
         </li>
         <li class="nav-item">
-    </ul>
-<div>    
+    </ul>   
