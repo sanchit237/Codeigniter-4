@@ -31,9 +31,11 @@ class Contact extends BaseController
 
                 if ($result){
                     echo "data inserted sucessfully";
+                    return redirect()->to('Contact');
                 }
                 else {
                     echo "Data insertion error";
+                    return redirect()->to('Contact');
                 }
             }
             else {

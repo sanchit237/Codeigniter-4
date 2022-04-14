@@ -51,5 +51,6 @@ class BaseController extends Controller
 
         $this->ContactModel = new \App\Models\ContactModel();
         $this->db = \Config\Database::connect();
+        $this->session = \Config\Services::session();
     }
 }
