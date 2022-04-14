@@ -12,7 +12,7 @@
                 <?= $validation->listErrors() ?>
             </div> 
             <?php endif; ?>
-
+            
             <?= form_open('Contact/contact_validate'); ?>
             <div class="form-group">
                 <?= form_label('Enter Name'); ?>

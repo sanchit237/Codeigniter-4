@@ -20,7 +20,21 @@ class Contact extends BaseController
 
         if ($this->request->getMethod() == 'post'){
             if ($this->validate($rules)){
-                echo "validation successfull";
+                
+                $cdata = [
+                    'username' => $this->request->getPost('username'),
+                    'userpass' => $this->request->getPost('password'),
+                    'usermob' => $this->request->getPost('mobile'),
+                ];
+
+                $result = $this->ContactModel->savedata($cdata);
+
+                if ($result){
+                    echo "data inserted sucessfully";
+                }
+                else {
+                    echo "Data insertion error";
+                }
             }
             else {
                 $data['validation'] = $this->validator;
