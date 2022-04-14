@@ -13,15 +13,18 @@
                     endforeach;
                     ?> 
                     */?>
+                    
                 </ul>
                 <ul>
+                    <?php /*
                     <?php foreach($display as $result1): ?>
                         <li><?php echo $result1->id; ?></li>
                         <li><?php echo $result1->name; ?></li>
                         <li><?php echo $result1->age; ?></li>
                     <?php 
                     endforeach;
-                    ?>    
+                    ?> 
+                    */?>   
                 </ul>
             </div>
         </div>
