@@ -10,7 +10,7 @@ class Testing extends BaseController
     public function __construct(){
         $this->parser = \Config\Services::parser();
         $this->usermodel = new \App\Models\User();
-        helper('form');
+        // helper('form');
     }
     public function index()
     {
