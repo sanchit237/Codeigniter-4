@@ -11,16 +11,21 @@
     <title>Hello, world!</title>
     
 </head>
-<body> 
-    <ul class="nav py-3">
-        <li class="nav-item">
-            <a class="nav-link " href="<?= base_url() ?>/Contact">Contact</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url() ?>/Register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url() ?>/Login">Login</a>
-        </li>
-        <li class="nav-item">
-    </ul>   
+<body>
+<nav class="navbar navbar-dark navbar-expand bg-dark mb-4">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= base_url() ?>/Contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= base_url() ?>/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= base_url() ?>/Login">Login</a>
+            </li>
+        </ul>
+    </div>    
+</nav>

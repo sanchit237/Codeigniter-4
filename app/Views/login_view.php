@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="pb-3">Contact Form</h1>
+            <h1 class="pb-3">Login</h1>
 
             <?php if(isset($validation)): ?>
             <div class="alert alert-danger">
