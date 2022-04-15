@@ -19,7 +19,7 @@ class RegisterModel extends Model {
         $builder->where('unid', $data);
         $query = $builder->get();
         
-        if ($builder->countAll() > 0){
+        if (count($query->getResultArray()==1)){
             return $query->getRow();
         }
         else {
