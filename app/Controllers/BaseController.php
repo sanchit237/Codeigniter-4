@@ -49,8 +49,13 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
 
+        //Models
         $this->ContactModel = new \App\Models\ContactModel();
+        $this->RegisterModel = new \App\Models\RegisterModel();
+
+        // Libraries
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
+        $this->email = \Config\Services::email();
     }
 }

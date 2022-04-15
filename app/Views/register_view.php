@@ -16,9 +16,15 @@
             </div> 
             <?php endif; ?>
 
-            <?php if($page_session->getFlashdata('success')): ?>
+            <?php if($page_session->getFlashdata('reg_success')): ?>
             <div class="alert alert-success">
-                <?= $page_session->getFlashdata('success'); ?>
+                <?= $page_session->getFlashdata('reg_success'); ?>
+            </div> 
+            <?php endif; ?>
+
+            <?php if($page_session->getFlashdata('reg_failure')): ?>
+            <div class="alert alert-danger">
+                <?= $page_session->getFlashdata('reg_failure'); ?>
             </div> 
             <?php endif; ?>
             
@@ -29,7 +35,7 @@
             </div>
             <div class="form-group">
                 <?= form_label('Enter Email'); ?>
-                <?= form_input(['name'=>'email','class'=>'form-control'],'','','email'); ?>
+                <?= form_input(['name'=>'reg_email','class'=>'form-control'],'','','email'); ?>
             </div>
             <div class="form-group">
                 <?= form_label('Enter Password'); ?>
