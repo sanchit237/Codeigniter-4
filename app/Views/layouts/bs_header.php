@@ -14,13 +14,13 @@
 <body> 
     <ul class="nav py-3">
         <li class="nav-item">
-            <a class="nav-link " href="<?= base_url() . '/Contact' ?>">Contact</a>
+            <a class="nav-link " href="<?= base_url() ?>/Contact">Contact</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link" href="<?= base_url() ?>/Register">Register</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="<?= base_url() ?>/Login">Login</a>
         </li>
         <li class="nav-item">
     </ul>   
