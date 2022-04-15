@@ -12,4 +12,34 @@ class RegisterModel extends Model {
             return true;
         }
     }
+
+    public function verifyid($data){
+        $builder = $this->db->table('register');
+        $builder->select('unid, activation_date, status');
+        $builder->where('unid', $data);
+        $query = $builder->get();
+        
+        if ($builder->countAll() > 0){
+            return $query->getRow();
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updatestatus($data){
+        $builder = $this->db->table('register');
+        $builder->where('unid', $data);
+        $result = $builder->update(['status'=>'active']);
+        if($this->db->affectedRows() == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+        // if ($result){
+        //     return true;
+        // }
+    }
 }

@@ -31,10 +31,11 @@ class Register extends BaseController
                 $result = $this->RegisterModel->registerdata($registerdata);
                 
                 if ($result){
+                    $message = "Click on the link to activate your account <br> <a href='".base_url()."/Register/activate/".$unid."'>Activate Now</a>";
                     $this->email->setFrom('gamingsn237@gmail.com', 'sanchit');
                     $this->email->setTo($this->request->getPost('reg_email'));
                     $this->email->setSubject('Email Test');
-                    $this->email->setMessage('Testing the email class.');
+                    $this->email->setMessage($message);
                     if ($this->email->send()){
                         $this->session->setFlashdata('reg_success', 'Account created successfully');
                         return redirect()->to(current_url());
@@ -55,6 +56,56 @@ class Register extends BaseController
         }
 
         return view('register_view', $data);
+    }
+
+    public function activate($unid = null){
+        $data = [];
+
+        if (!empty($unid)){
+
+            $result = $this->RegisterModel->verifyid($unid);
+
+            if ($result){
+                
+                if($this->expirycheck($result->activation_date)){
+
+                    if ($result->status == 'inactive'){
+                        $status = $this->RegisterModel->updatestatus($unid);
+                        
+                        if ($status == true)
+                        {
+                            $data['success'] = "Activation success";
+                        }
+                    }
+                    else {
+                        $data['act_fail'] = 'Account is already activated';
+                    }
+                }
+                else {
+
+                }
+            }
+            else {
+
+            }
+        }
+        else {
+            $data['error'] = "Error in activation";
+        }
+        return view('activate_view', $data);
+    }
+
+    public function expirycheck($exptime){
+        $currtime = now();
+        $exptime = strtotime($exptime);
+        $difftime = (int)$currtime - (int)$exptime;
+
+        if ($difftime < 3600){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }
