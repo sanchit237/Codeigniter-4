@@ -53,6 +53,7 @@ class BaseController extends Controller
         $this->ContactModel = new \App\Models\ContactModel();
         $this->RegisterModel = new \App\Models\RegisterModel();
         $this->LoginModel = new \App\Models\LoginModel();
+        $this->DashboardModel = new \App\Models\DashboardModel();
 
         // Libraries
         $this->db = \Config\Database::connect();
