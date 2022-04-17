@@ -21,6 +21,25 @@
                 <?= $page_session->getFlashdata('success'); ?>
             </div> 
             <?php endif; ?>
+
+            <?php if($page_session->getFlashdata('pass_match')): ?>
+            <div class="alert alert-success">
+                <?= $page_session->getFlashdata('pass_match'); ?>
+            </div> 
+            <?php endif; ?>
+
+            <?php if($page_session->getFlashdata('pass_not_match')): ?>
+            <div class="alert alert-danger">
+                <?= $page_session->getFlashdata('pass_not_match'); ?>
+            </div> 
+            <?php endif; ?>
+
+            <?php if($page_session->getFlashdata('status_error')): ?>
+            <div class="alert alert-danger">
+                <?= $page_session->getFlashdata('status_error'); ?>
+            </div> 
+            <?php endif; ?>
+
             
             <?= form_open('Login'); ?>
             <div class="form-group">

@@ -35,7 +35,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['form','date'];
+    protected $helpers = ['form','date','session'];
 
     /**
      * Constructor.
@@ -52,6 +52,7 @@ class BaseController extends Controller
         //Models
         $this->ContactModel = new \App\Models\ContactModel();
         $this->RegisterModel = new \App\Models\RegisterModel();
+        $this->LoginModel = new \App\Models\LoginModel();
 
         // Libraries
         $this->db = \Config\Database::connect();
