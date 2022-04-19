@@ -14,5 +14,6 @@
 <h1>Username :- <?= $dashcont['username']; ?></h1>
 <h1>email :- <?= $dashcont['email']; ?></h1>
 <h1>Mobile :- <?= $dashcont['mobile']; ?></h1>
+<img src="<?= $dashcont['profile_pic'];?>" alt="">
 
 <?= $this->endSection() ?>

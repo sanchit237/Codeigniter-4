@@ -18,5 +18,4 @@ class FileUpload extends BaseController
         return view('upload_view', $data);
     }
 
-
 }

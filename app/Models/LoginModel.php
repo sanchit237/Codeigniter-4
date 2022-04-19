@@ -16,5 +16,4 @@ class LoginModel extends Model {
             return $result->getRowArray();
         }
     }
-
 }

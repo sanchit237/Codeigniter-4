@@ -15,4 +15,16 @@ class DashboardModel extends Model {
         }
     }
 
+    public function upload_avatar($path, $unid){
+        $builder = $this->db->table('register');
+        $builder->where('unid', $unid);
+        $builder->update(['profile_pic'=> $path]);
+
+        if ($this->db->affectedRows() > 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
