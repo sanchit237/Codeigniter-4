@@ -30,7 +30,10 @@
                 <a class="nav-link text-white" href="<?= base_url() ?>/Dashboard/logout">Logout</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="<?= base_url() ?>/Dashboard/avatar">Upload avatar</a>
+                <a class="nav-link text-white" href="<?= base_url() ?>/Dashboard/avatar">Upload Avatar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= base_url() ?>/Dashboard/change_password">Change Password</a>
             </li>
         </ul>
     </div>    

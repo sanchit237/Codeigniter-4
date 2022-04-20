@@ -27,4 +27,17 @@ class DashboardModel extends Model {
             return false;
         }
     }
+
+    public function change_pass($new_pass, $unid){
+        $builder = $this->db->table('register');
+        $builder->where('unid', $unid);
+        $builder->update(['password'=> $new_pass]);
+
+        if ($this->db->affectedRows() > 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

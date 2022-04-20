@@ -23,6 +23,9 @@ class Dashboard extends BaseController
     }
 
     public function avatar(){
+        if (!$this->session->has('unid')){
+            return redirect()->to('Login');
+        }
         $data= [];
         $unid = $this->session->get('unid');
 
@@ -37,5 +40,50 @@ class Dashboard extends BaseController
             }
         }
         return view('avatar_view', $data);
+    }
+
+
+    public function change_password(){
+        if (!$this->session->has('unid')){
+            return redirect()->to('Login');
+        }
+
+        $data = [];
+        $unid = $this->session->get('unid');
+        
+        $rules = [
+            'old_password' => 'required',
+            'new_password' => 'required',
+            'conf_password' => 'required|matches[new_password]',
+        ];
+
+        if ($this->request->getMethod() == 'post'){
+
+            if($this->validate($rules)){
+
+                $old_password = $this->request->getPost('old_password');
+                $new_password = $this->request->getPost('new_password');
+
+                $verify = $this->DashboardModel->dashdata($unid);
+                $db_password = $verify['password'];
+
+                if ($old_password == $db_password){
+                    if ($this->DashboardModel->change_pass($new_password, $unid)){
+                        $this->session->setFlashdata('success', 'Password changed successfully');
+                    }
+                    else {
+                        $this->session->setFlashdata('error', 'Password changing issue');
+                    }
+                }
+                else {
+                    $this->session->setFlashdata('error', 'Password changing issue');
+                }
+            }
+            else {
+                $data['validation'] = $this->validator;
+            }
+        }
+
+        return view("password_view", $data);
     }
 }
