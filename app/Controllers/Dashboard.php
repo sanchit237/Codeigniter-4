@@ -86,4 +86,40 @@ class Dashboard extends BaseController
 
         return view("password_view", $data);
     }
+
+    public function edit(){
+        if (!$this->session->has('unid')){
+            return redirect()->to('Login');
+        }
+
+        $data = [];
+        $unid = $this->session->get('unid');
+
+        $data['edit_data'] = $this->DashboardModel->dashdata($unid);
+
+        if ($this->request->getMethod() == 'post'){
+            $rules = [
+                'edit_username' => 'required',
+                'edit_mobile' => 'required'
+            ];
+
+            if ($this->validate($rules)){
+                $update_data = [
+                    'username'=> $this->request->getPost('edit_username'),
+                    'mobile'=> $this->request->getPost('edit_mobile'),
+                ];
+
+                if ($this->DashboardModel->update_data($update_data, $unid)){
+                    $this->session->setFlashdata('success', 'Records updated successfully');
+                }
+                else {
+                    $this->session->setFlashdata('error', 'Issue in updating records');
+                }
+            }
+            else {
+                $data['validation'] = $this->validator;
+            }
+        }
+        return view("edit_view",$data);
+    }
 }

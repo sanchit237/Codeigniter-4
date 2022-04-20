@@ -40,4 +40,17 @@ class DashboardModel extends Model {
             return false;
         }
     }
+
+    public function update_data($data, $unid){
+        $builder = $this->db->table('register');
+        $builder->where('unid', $unid);
+        $builder->update($data);
+
+        if ($this->db->affectedRows() > 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

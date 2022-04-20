@@ -35,6 +35,9 @@
             <li class="nav-item">
                 <a class="nav-link text-white" href="<?= base_url() ?>/Dashboard/change_password">Change Password</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="<?= base_url() ?>/Dashboard/edit">Edit User</a>
+            </li>
         </ul>
     </div>    
 </nav>
