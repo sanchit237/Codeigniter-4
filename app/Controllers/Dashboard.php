@@ -122,4 +122,46 @@ class Dashboard extends BaseController
         }
         return view("edit_view",$data);
     }
+
+    public function forgot_pass(){
+        $data = [];
+
+        if ($this->request->getMethod() == 'post'){
+
+            $rules = [
+                'verify_email' => 'required'
+            ];
+
+            if ($this->validate($rules)){
+                $email = $this->request->getPost('verify_email');
+
+                $verify = $this->DashboardModel->verify_email($email);
+
+                if (!empty($verify)){
+
+                    $token = $verify['unid'];
+
+                    $message = 'Hi User <br>
+                    <a href="'.base_url().'/Login/reset/'.$token.'">Click on the link to reset password</a>';
+
+                    $this->email->setFrom('gamingsn237@gmail.com', 'test');
+                    $this->email->setTo($email);
+
+                    $this->email->setSubject('Verify Password');
+                    $this->email->setMessage($message);
+
+                    if ($this->email->send()){
+                        $this->session->setFlashdata('success', 'Email sent successfully');
+                    }
+                }
+                else {
+                    $this->session->setFlashdata('error', 'Email sending failed');
+                }
+            }
+            else {
+                $data['validation'] = $this->validator;
+            }
+        }
+        return view("forgot_view", $data);
+    }
 }

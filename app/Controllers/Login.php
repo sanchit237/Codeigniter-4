@@ -45,4 +45,41 @@ class Login extends BaseController
         }
         return view('login_view', $data);
     }
+
+    public function reset($token=null){
+
+        $data = [];
+        if (!empty($token)){
+
+            if ($this->request->getMethod() == 'post'){
+
+                $rules = [
+                    'res_password' => 'required'
+                ];
+
+                if ($this->validate($rules)){
+
+                    $res_pass = $this->request->getPost('res_password');
+
+                    if ($this->LoginModel->reset_pass($token,$res_pass)){
+                        $this->session->setFlashdata('success','New password updated');
+                        return redirect()->to('/Login');
+                    }
+                    else {
+                        $this->session->setFlashdata('error','New password setting failed');
+                    }
+                }
+                else {
+                    $data['validation'] = $this->validator;
+                }
+            }
+            else {
+                $this->session->setFlashdata('token_error','No token found');
+            }
+        }
+        else {
+            $this->session->setFlashdata('token_error','No token found');
+        }
+        return view("reset_pass", $data);
+    }
 }

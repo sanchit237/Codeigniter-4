@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="pb-3">Login</h1>
+            <h1 class="pb-3">Reset Password</h1>
 
             <?php if(isset($validation)): ?>
             <div class="alert alert-danger">
@@ -34,30 +34,22 @@
             </div> 
             <?php endif; ?>
 
-            <?php if($page_session->getFlashdata('status_error')): ?>
+            <?php if($page_session->getFlashdata('token_error')): ?>
             <div class="alert alert-danger">
-                <?= $page_session->getFlashdata('status_error'); ?>
+                <?= $page_session->getFlashdata('token_error'); ?>
             </div> 
             <?php endif; ?>
 
             
-            <?= form_open('Login'); ?>
-            <div class="form-group">
-                <?= form_label('Enter Email'); ?>
-                <?= form_input(['name'=>'log_email','class'=>'form-control'],'','','email'); ?>
-            </div>
+            <?= form_open(); ?>
+
             <div class="form-group">
                 <?= form_label('Enter Password'); ?>
-                <?= form_password(['name'=>'log_password','class'=>'form-control']); ?>
+                <?= form_password(['name'=>'res_password','class'=>'form-control']); ?>
             </div>
             <div class="form-group">
-                <?= form_submit('log_submit', 'Login',['class'=>'btn btn-primary']); ?>
-                <a href="Dashboard/forgot_pass" class="btn btn-outline-success">Forgot Password ?</a>
+                <?= form_submit('submit', 'Submit',['class'=>'btn btn-primary']); ?>
             </div>
-            <!-- <div class="form-group">
-                <a href="#" class="btn btn-outline-success">Login with Google</a>
-                <a href="#" class="btn btn-outline-success">Login with facebook</a>
-            </div> -->
             <?= form_close(); ?>
         </div>
     </div>

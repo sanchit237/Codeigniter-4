@@ -16,4 +16,17 @@ class LoginModel extends Model {
             return $result->getRowArray();
         }
     }
+
+    public function reset_pass($token, $pass){
+        $builder = $this->db->table('register');
+        $builder->where('unid', $token);
+        $builder->update(['password'=>$pass]);
+
+        if ($this->db->affectedRows() > 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

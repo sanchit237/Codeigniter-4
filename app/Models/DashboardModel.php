@@ -53,4 +53,14 @@ class DashboardModel extends Model {
             return false;
         }
     }
+
+    public function verify_email($data){
+        $builder = $this->db->table('register');
+        $builder->where('email', $data);
+        $result = $builder->get();
+
+        if (count($result->getResultArray()) == 1){
+            return $result->getRowArray();
+        }
+    }
 }
